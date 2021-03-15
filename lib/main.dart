@@ -1,6 +1,8 @@
-import 'package:demo01/pages/html_demo.dart';
+import 'package:demo01/pages/flutter_html_demo.dart';
+import 'package:demo01/pages/html_parser_demo.dart';
 import 'package:demo01/pages/md5_file_demo.dart';
 import 'package:demo01/pages/rich_text_demo.dart';
+import 'package:demo01/pages/url_launcher_demo.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 // import 'package:html/dom.dart';
@@ -20,9 +22,11 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       routes: <String, WidgetBuilder>{
-        '/toDemo01': (BuildContext context) => new HtmlDemo(),
+        '/toDemo01': (BuildContext context) => new HtmlParserDemo(),
         '/toDemo02': (BuildContext context) => new RichTextDemo(),
         '/toDemo03': (BuildContext context) => new Md5FileDemo(),
+        '/toDemo04': (BuildContext context) => new FlutterHtmlDemo(),
+        '/toDemo05': (BuildContext context) => new UrlLauncherDemo(),
       },
       home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
@@ -85,7 +89,26 @@ class _MyHomePageState extends State<MyHomePage> {
                   onPressed: () {
                     Navigator.pushNamed(context, "/toDemo03");
                   },
-                )
+                ),
+                FlatButton(
+                  child: Text(
+                    'HTML解析',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  color: Colors.pink,
+                  onPressed: () {
+                    Navigator.pushNamed(context, "/toDemo04");
+                  },
+                ),FlatButton(
+                  child: Text(
+                    'URL_LAUNCHER解析',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  color: Colors.pink,
+                  onPressed: () {
+                    Navigator.pushNamed(context, "/toDemo05");
+                  },
+                ),
               ],
             ),
           ),
